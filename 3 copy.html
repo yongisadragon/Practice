@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WEB_JavaScript</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <h1><a href="index.html">WEB</a></h1>
+
+  <div id="grid">
+  <ol> 
+    <li><a href="1.html">HTML</a></li>
+    <li><a href="2.html">CSS</a></li>
+    <li><a href="3.html">JavaScript</a></li>
+  </ol>
+
+  <div id="article">
+<h2>JavaScript</h2>
+<p>
+  <img src="img2.png" alt="귀여움" >
+</p>
+
+<!--반복문을 이용한 응용. 3.html에서 온앤오프를 할때마다 a태그의 글자들의 색깔을 일일이 바뀌게 하고 싶을 때. 먼저 inspector페이지에서, document.querySelector('a')를 검색. 해당 검색은 a태그들의 목록을 담은 배열을 출력하라는 것. 그럼 노드리스트 형태로 뜨기 때문에 [a,a,a,a]로 뜰텐데, 여기서 var alist = document.querySelector('a')로 변수 지정 후, 두번째 줄에 을console.log(alist[0]) 하면 아마 <a href="1.html">HTML</a> 가 출력될거임. 0번째 a태그를 보여준다는 뜼임. 이것을 응용해서 
+  var alist = document.querySelectorAll('a');
+  console.log(alist.length); 을 입력하면 이 예제의 경우는 4가 뜨겠지. 이것을 또 응용해서! *중요* i가 alist.length보다 작은 조건으로 1씩 증가하는 while문을 작성하면, a태그를 순서대로 출력해줄 것임. 그게 바로 아랫 구문
+  var alist = document.querySelectorAll('a');
+  var i = 0;
+  while(i < alist.length){
+      console.log(alist[i]);
+      i = i + 1;
+      여기서 alist[i]는 반복문이 진행될 때마다 계속해서 반복되는 a태그의 원소들이기 때문에 alist[i].style.color='powderblue'; 로 하면 반복될 때마다 스타일..색이 바뀌게 해주는 것임.
+-->
+<p>
+<input type="button" value="DARK" onclick="
+  var target = document.querySelector('body');
+  if (this.value === 'DARK') {
+  target.style.backgroundColor='black';
+  target.style.color='white';
+  this.value='SUN';
+
+  var alist = document.querySelectorAll('a');
+  var i = 0;
+  while(i < alist.length){
+      alist[i].style.color = 'powderblue';
+      i = i + 1;
+  }
+} else {  
+  target.style.backgroundColor='white';
+  target.style.color='black';
+  this.value='DARK';
+
+  var alist = document.querySelectorAll('a');
+  var i = 0;
+  while(i < alist.length){
+      alist[i].style.color = 'red';
+      i = i + 1;
+  }
+}
+">
+</p>
+  JavaScript (/ˈdʒɑːvəskrɪpt/), often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries. All major web browsers have a dedicated JavaScript engine to execute the code on users' devices.
+  </div>
+
+
+</div>
+</body>
+</html>
+

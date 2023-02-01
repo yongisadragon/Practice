@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Loop & Array</h1>
+    <!--1단계 기본 list업-->
+        <h2>Family</h2>
+        <ul>
+            <li>mom</li>
+            <li>dad</li>
+            <li>yong</li>
+            <li>yongpal</li>
+        </ul>
+
+    <!--2단계 기본 배열생성, 그리고 배열안에 있는 li태그를 하나 씩 생성 배열 안에 있는 원소값(elements)을 작성. 배열안에 값는 순서대로 0번째, 1번째 .. -->
+        <script>
+            var family = ['mom','dad','yong','yongpal'];
+        </script>
+        
+        <h2>Family</h2>
+        <!--list를 4번 반복하는 반복문 생성. list태그사이에 +family[i]+에 i를 사용한 것은 배열에서 데이터를 가져오고 싶은 값을 대괄호안에 불러오는데, i값과 index의 순서값이 일치하는 특성을 이용한 것.-->
+        <ul>
+         <script>
+            var i = 0;
+            while(i < 4){
+            document.write('<li>'+family[i]+'</li>');
+            i = i+1;
+        }
+         </script>
+        </ul>
+
+            <!--2단계 기본 배열생성, 그리고 배열안에 있는 li태그를 하나 씩 생성 배열 안에 있는 원소값(elements)을 작성. 배열안에 값는 순서대로 0번째, 1번째 .. -->
+        <script>
+            var family = ['mom','dad','yong','yongpal'];
+        </script>
+        
+        <h2>Family</h2>
+        <!--list를 4번 반복하는 반복문 생성. list태그사이에 +family[i]+에 i를 사용한 것은 배열에서 데이터를 가져오고 싶은 값을 대괄호안에 불러오는데, i값과 index의 순서값이 일치하는 특성을 이용한 것.-->
+        <ul>
+         <script>
+            var i = 0;
+            while(i < 4){
+            document.write('<li>'+family[i]+'</li>');
+            i = i+1;
+        }
+         </script>
+        </ul>
+    <!--2단계 기본 배열생성, 그리고 배열안에 있는 li태그를 하나 씩 생성 배열 안에 있는 원소값(elements)을 작성. 배열안에 값는 순서대로 0번째, 1번째 .. -->
+        <script>
+            var family = ['mom','dad','yong','yongpal','anotherone'];
+        </script>
+        
+        <h2>Family</h2>
+        <!--list를 4번 반복하는 반복문 생성. list태그사이에 +family[i]+에 i를 사용한 것은 배열에서 데이터를 가져오고 싶은 값을 대괄호안에 불러오는데, i값과 index의 순서값이 일치하는 특성을 이용한 것. 그러나 family 변수안에 값이 더해지거나, 줄어들면, while문 안에 i값의 범위를 4로 지정해놨기 때문에 (while(i < 4)), 많으면 출력이 안되거나, 적으면 undefined가 뜰것이다. 프로그램에서 데이터가 바뀐다고, 로직을 바꿔야하는 것은 위험하기 때문에, 애초에 로직(while문)을 잘 처리해놔야한다. 즉, family의 elements의 숫자가 4의 자리에 올 수 있으면 된다. (while( i < family.length)) 이렇게되면 while문이 포함된 js는 신경 쓸 필요없이 변수데이터에만 집중하면 된다. 각각에 엘레먼츠에 링크도 삽입할 수 있다.''안에는 변수가 와야댐.-->
+        <ul>
+         <script>
+            var i = 0;
+            while(i < family.length){
+            document.write('<li><a href="http://naver.com">'+family[i]+'</a></li>');
+            i = i + 1;
+        }
+         </script>
+        </ul>        
+        
+
+</body>
+</html>
