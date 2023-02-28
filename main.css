@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;900&display=swap');
+
+*{
+    font-family: 'Roboto';
+}
+
+
+
+h1,h2,body{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    min-width: fit-content;
+}
+
+
+h1{
+    font-size: 35px;
+}
+
+h2{
+    font-size: 24px;
+    font-weight: 300;
+    padding-bottom: 5px;
+    border-bottom: 1px solid rgb(212, 212, 212);;
+}
+
+section{
+    margin-bottom: 50px;
+}
+
+.occuText{
+    font-size: large;
+    font-weight: 600;
+    font-style: italic;
+    color: rgb(101, 101, 101);
+    margin-top: 7px;
+
+}
+
+.mainBox{
+    width: 550px;
+    padding: 45px;
+    border: 1px solid rgb(212, 212, 212);
+    margin: 40px auto;
+    box-shadow: 0px 1px 20px 0px rgba(0,248,103,1);
+}
+
+.nameText{
+    text-align: right;   
+}
+
+
+.basicText{
+    line-height: 150%;
+}
+
+.floatWrap{
+    overflow: hidden;
+}
+
+.titleText{
+    
+    float: left;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.yearText{
+    float: right;
+    font-weight: 600;
+    margin-bottom: 0px;
+}
+
+.jobText{
+    margin:4px;
+    margin-left: 0px;
+}
+
+.techText{
+    margin: 4px;
+    padding-left: 15px;
+}
+
+
+.img2{
+    width: 59px;
+
+}
+
+
+
+.snsWrap{
+    text-align: right;
+}
+
+footer{
+    padding: 2px;
+    text-align: center;
+    background-color: rgb(24, 24, 24);
+    color: rgb(166, 50, 172);
+}
