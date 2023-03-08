@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WEB_JavaScript</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="style.css">
+  <style>
+a{
+  color: royalblue;
+}
+
+  </style>
+</head>
+
+<body>
+  <h1><a href="index.html">WEB</a></h1>
+
+ 
+  
+  <div id="grid">
+  <ol> 
+    <li><a href="1.html">HTML</a></li>
+    <li><a href="2.html">CSS</a></li>
+    <li><a href="3.html">JavaScript</a></li>
+  </ol>
+
+  <div id="article">
+<h2>JavaScript</h2>
+<p>
+  <img src="img2.png" alt="귀여움" >
+</p>
+<p>
+  <!--
+    조건문. value는 버튼이름이야. 인풋 이하를 설명하자면, nighttoday라는 id안에서 DARK라는 버튼 타입으로 시작이 돼. 조건을 풀어보자면 value가 DARK(기본상태)일때, if아래를 실행해줘. 그건 스타일에서 배경은 어둡게, 글씨는 밝게(다크모드)해줘. 그리고 마지막으로 버튼의 value(이름)을 SUN으로 바꿔줘. 그럼 반전이 되면서 버튼의 value가 SUN으로 바뀌기 때문에 최초의 if안의 조건이 false가 돼. 그 조건은 value === DARK 이니까. 지금은 value === SUN이 되어버렸잖아. 그래서 이젠 else로 넘어가서 else아래의 것들을 실행하는거지. (밝은 모드) 그리고 else의 마지막에도 버튼의 value(이름)을 다시 DARK로 바꾸라고 하기 때문에, 최초의 조건으로 돌아가. 그래서 무한 순환하는 구조가 되는거야.
+  -->
+<input id=nighttoday type="button" value="DARK " onclick="
+  if (document.querySelector('#nighttoday').value === 'DARK') {
+  document.querySelector('body').style.backgroundColor='black';
+  document.querySelector('body').style.color='white';
+  document.querySelector('#nighttoday').value='SUN';
+} else {  
+  document.querySelector('body').style.backgroundColor='white';
+  document.querySelector('body').style.color='black';
+  document.querySelector('#nighttoday').value='DARK';
+}
+"> 
+
+<!--리팩토링이란, 코딩을하고나면 코드가 비효율적인 면들이 생김. 동작하는 것은 그대로 두고, 코드자체를 효율적으로 만들어서, 코드의 가독성을 높이고 유지보수를 하기 편리하게 만들고, 중복을 줄이고.. 코드를 개선하는 작업.. 이를테면 위에서 작업한 if 연습을 위한 버튼을 가져와보자.document.querySelector('#nighttoday') 는 사실상 자기자신 id를 가르키는 말이므로 index태그를 참조하는 것은 this로 가능하기 때문에 input에 속하는 id=nighttoday라는 이름조차 쓰지않아도된다. this라는 키워드로 대체 가능하다.(기존것과 비교해보자.) --> 
+<input type="button" value="DARK" onclick="
+  if (this.value === 'DARK') {
+  document.querySelector('body').style.backgroundColor='black';
+  document.querySelector('body').style.color='white';
+  this.value='SUN';
+} else {  
+  document.querySelector('body').style.backgroundColor='white';
+  document.querySelector('body').style.color='black';
+  this.value='DARK';
+}
+">
+
+<!-- 한번더 리팩토링. document.querySelector('body')도 중복이 되지 않는가. var target = document.querySelector('body'); 로 설정해서 아래 중복되는 부분들을 target변수로 대체해보자. 1번 버튼부터, 3번버튼까지의 과정을 리팩토링.. 중복제거..--> 
+<input type="button" value="DARK" onclick="
+  var target = document.querySelector('body');
+  if (this.value === 'DARK') {
+  target.style.backgroundColor='black';
+  target.style.color='white';
+  this.value='SUN';
+} else {  
+  target.style.backgroundColor='white';
+  target.style.color='black';
+  this.value='DARK';
+}
+">
+
+</p>
+  JavaScript (/ˈdʒɑːvəskrɪpt/), often abbreviated as JS, is a programming language that is one of the core technologies of the World Wide Web, alongside HTML and CSS. As of 2022, 98% of websites use JavaScript on the client side for webpage behavior, often incorporating third-party libraries. All major web browsers have a dedicated JavaScript engine to execute the code on users' devices.
+  </div>
+</div>
+</body>
+</html>
+

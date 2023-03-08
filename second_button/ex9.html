@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Function</h1>
+    <h2>Basic</h2>
+    <ul>
+            <script>
+                function two(){
+                document.write('<li>2-1</li>');
+                document.write('<li>2-2</li>');
+                }
+                document.write('<li>1</li>');
+                two();
+                document.write('<li>3</li>');
+                two();
+            </script> 
+    </ul>
+    <!--parameter=입력,매개변수/Argument 인자/parameter와argument는 함수에 들어가는 *입력 값*이다. Return 출력-->
+    <h2>Parameter & Argument</h2>
+    <script> 
+        function onePlusone(){
+            document.write(1+1+'<br>');
+        }
+        onePlusone();
+    // 위의 것은 onePlusone이라는 함수의 출력 값을 출력한 과정.
+
+        function sum(left, right){
+            document.write(left+right+'<br>')
+        }
+        sum(2,3); //5
+        sum(3,4); //7
+    //위의 함수에서 left, right는 parameter-매개변수(변하는 값)가 된다.function sum(left, right)를 선언하고 아래 sum(?,?) ex> sum(2,3)이 실행된다면, function sum(left, right)에서 left는 2가, right는 3이 되기로 약속된 것입니다. sum속의 2와3은 함수로 전달하는 값, argument(인자)라고하고, 값이 달라짐에 따라 document.write(?+?);의 출력을 따른다.
+    </script>
+
+    <h2>Return</h2> 
+   
+    <!--음..근데 예를들면 sum(2,3);이 5가 되는 '표현식'을 보여주면서도.. 글자색과 크기 등.. 을 바꾸려면 아주 복잡한 식이 되어버려.. 즉, 더해진 '값'을 다양한 방법으로 사용해야 한다면..?! 그럴 때는 return!-->
+    <script>
+        function sumColorRed(left, right){
+            document.write('<div style="color:red">'+left+right+'</div><br>');
+        }
+        sum(2,3); //5
+        sumColorRed(2,3); //빨간5, 여기선 string+numb+numb+string이라 이상하게 23 나왔음.
+
+        function sum2(left, right){
+            return left+ right;
+
+        } //즉, 여기선 보자. sum2을 '숫자5에 대한 표현식'이 되게 하고 싶다라고 해보자.
+        document.write(sum2(2,3)+'<br>'); //얘는 평범한 5의 출력
+        document.write('<div style="color:red">'+sum2(2,3)+'</div>'); //얘는 red컬러의 숫자5의 표현식을 가진 아이. div는 자체 줄바꿈 있음. br필요 x
+        document.write('<div style="font-size:3rem">'+sum2(2,3)+'</div>'); //얘는 3rem크기의 숫자5의 표현식을 가진 아이. 즉 위의 함수와 다른 점은, 바로 document.write로 실행하느 것이 아니라, sum의 값을 돌려준다면(return)?
+
+        //즉 ,return의 혜택은 sum2의 함수(function sum2()~가 계산이라는 기능만을 구현하고, 원자화 된 기능을 다양한 맥락에서 활용할 수 있는 자유도가 생긴다.
+    </script>
+    
+</body>
+</html>
