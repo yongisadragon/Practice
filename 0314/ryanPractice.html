@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>title name</title>
+    <style>
+      *,
+      *:after,
+      *:before {
+        /* padding이나 border-width로 인해 전체 사이즈에 영향을 받지 않도록 선언해 줍니다. */
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #313654;
+      }
+
+      .ryan {
+        position: relative; /* 라이언 기준점 잡기 */
+        margin: 50% auto; /* 상하 50px 여백을 주고 좌우는 중앙 정렬 */
+        width: 400px; /* 라이언 가로 폭 */
+        height: 380px; /* 라이언 세로 폭 */
+      }
+
+      .ryan .face {
+        position: absolute; /* .ryan에 position: relative를 주었으므로 그 영역을 기준으로 잡습니다. */
+        bottom: 0; /* 바닥에서 0px 떨어진 곳 = 맨 아래 위치 | 0은 굳이 단위(px)를 적지 않아도 됩니다. */
+        width: 400px;
+        height: 367px;
+        border-radius: 100%; /* 원형으로 만들기 */
+        border: 10px solid #000; /* 검정색 테두리 10px */
+        background: #d59729; /* 라이언 얼굴 색 */
+        z-index: 100;
+      }
+      .ryan .ear {
+        position: absolute;
+        top: 0;
+        width: 92px;
+        height: 92px;
+        border: 10px solid #000;
+        border-radius: 100%;
+        background: #d59729;
+      }
+      .ryan .ear.left {
+        left: 54px;
+      }
+      .ryan .ear.right {
+        right: 54px;
+      }
+
+      .ryan .eyebrow {
+        position: absolute;
+        top: 106px;
+        width: 78px;
+        height: 14px;
+        border-radius: 14px;
+        background: #000;
+        transition: all 0.2s; /* 속성이 변할 때 0.2초에 걸려 부드럽게 변하게 합니다. */
+        z-index: 200;
+      }
+      .ryan .eyebrow.left {
+        left: 68px;
+      }
+      .ryan .eyebrow.right {
+        right: 68px;
+      }
+      .ryan .eye {
+        position: absolute;
+        top: 147px;
+        width: 26px;
+        height: 26px;
+        border-radius: 100%;
+        background: #000;
+        transition: all 0.2s; /* 속성이 변할 때 0.2초에 걸려 부드럽게 변하게 합니다. */
+        z-index: 300;
+      }
+      .ryan .eye.left {
+        left: 98px;
+      }
+
+      .ryan .eye.right {
+        right: 98px;
+      }
+      .ryan .nose {
+        position: absolute;
+        top: 184px;
+        left: 50%;
+        margin-left: -16px;
+        width: 32px;
+        height: 33px;
+        border-radius: 100%; /* 그냥 100% 하셔도 됩니다. */
+        background: #000;
+        z-index: 500; /* z-index로 입보다 코가 위로 올라오도록 합니다. */
+      }
+
+      .ryan .mouth {
+        position: absolute;
+        top: 191px;
+        right: 73px;
+        width: 73px;
+        height: 68px;
+        border: 10px solid #000;
+        border-radius: 50%;
+        background: #fff;
+        z-index: 200;
+      }
+      .ryan .mouth.left {
+        left: 127px;
+      }
+      .ryan .mouth.right {
+        right: 127px;
+      }
+      .ryan .mouth:before {
+        content: "";
+        position: absolute;
+        width: 30px;
+        height: 33px;
+        background: #fff;
+        -webkit-transform: rotate(-45deg);
+        transform: rotate(-45deg);
+        z-index: 300;
+      }
+      .ryan .mouth.left:before {
+        top: 2px;
+        left: 29px;
+      }
+      .ryan .mouth.right:before {
+        top: 2px;
+        right: 31px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ryan">
+      <div class="face"></div>
+      <div class="ear left"></div>
+      <div class="ear right"></div>
+      <div class="eyebrow left"></div>
+      <div class="eyebrow right"></div>
+      <div class="eye left"></div>
+      <div class="eye right"></div>
+      <div class="nose"></div>
+      <div class="mouth left"></div>
+      <div class="mouth right"></div>
+    </div>
+  </body>
+</html>

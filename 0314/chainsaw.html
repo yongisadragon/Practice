@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>borderTest</title>
+    <style>
+      body {
+        height: 100vw;
+      }
+      div {
+        width: 200px;
+        height: 100px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transform: skew(-10deg);
+        border-radius: 50px 0 0 50px;
+        background: linear-gradient(90deg, #333 50%, transparent 0) repeat-x,
+          linear-gradient(90deg, #333 50%, transparent 0) repeat-x,
+          linear-gradient(0deg, #333 50%, transparent 0) repeat-y,
+          linear-gradient(0deg, #333 50%, transparent 0) repeat-y;
+        background-size: 4px 3px, 4px 3px, 3px 4px, 3px 4px;
+        background-position: 0 0, 0 100%, 0 0, 100% 0;
+      }
+
+      div:hover {
+        animation: linearGradientMove 0.3s infinite linear;
+      }
+
+      @keyframes linearGradientMove {
+        100% {
+          background-position: 4px 0, -4px 100%, 0 -4px, 100% 4px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+  </body>
+</html>

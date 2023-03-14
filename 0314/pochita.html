@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pochita</title>
+    <style>
+      * {
+        margin: initial;
+        padding: initial;
+      }
+      body {
+        background-color: rgb(40, 46, 91);
+      }
+
+      .pochita {
+        position: relative;
+        top: 50%;
+        width: 700px;
+        height: 800px;
+        background: url(bar.svg) no-repeat 50% 14% / 58%;
+        margin: 0 auto;
+      }
+
+      .face {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 390px;
+        height: 420px;
+        border-radius: 200px 200px 170px 170px;
+        /* transform: rotate(2deg); */
+      }
+      .face,
+      .hands {
+        background-color: #ff6b00;
+        border: 10px solid #632a00;
+      }
+
+      .eye {
+        position: absolute;
+        width: 85px;
+        height: 85px;
+        background-color: white;
+        border-radius: 100%;
+        border: 7px solid #632a00;
+        z-index: 300;
+      }
+
+      .eye.left .inner {
+        position: absolute;
+        top: 53%;
+        left: 54%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        background-color: black;
+        border-radius: 100%;
+      }
+      .eye.right .inner {
+        position: absolute;
+        top: 53%;
+        left: 46%;
+        transform: translate(-50%, -50%);
+        width: 70px;
+        height: 70px;
+        background-color: black;
+        border-radius: 100%;
+      }
+
+      .eye.left {
+        top: 55px;
+        left: 57px;
+      }
+
+      .eye.right {
+        top: 55px;
+        right: 57px;
+      }
+
+      .nose {
+        position: absolute;
+        width: 85px;
+        height: 85px;
+        background-color: #ff6b00;
+        border-radius: 100%;
+        box-shadow: 0 9px 0 0 rgba(99, 42, 0, 1);
+        z-index: 200;
+      }
+      .nose.left {
+        top: 120px;
+        left: 111px;
+        transform: rotate(20deg);
+      }
+      .nose.right {
+        top: 120px;
+        left: 189px;
+        transform: rotate(-20deg);
+      }
+
+      .mouth {
+        position: absolute;
+        background-color: #da000d;
+        border: 7px solid #632a00;
+        border-radius: 0 0 50px 50px;
+        width: 80px;
+        height: 60px;
+        top: 48%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .pochita .tail {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        width: 77px;
+        top: 80%;
+        left: 50%;
+      }
+      .hands {
+        position: absolute;
+        background-color: #ff6b00;
+        border: 7px solid #632a00;
+        border-radius: 50px 50px 10px 10px;
+        width: 65px;
+        height: 60px;
+      }
+      .hands::before {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 7px;
+        height: 22px;
+        background-color: #632a00;
+        bottom: -1px;
+        left: 16px;
+      }
+      .hands::after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 7px;
+        height: 18px;
+        background-color: #632a00;
+        bottom: -1px;
+        right: 16px;
+      }
+      .hands.one {
+        top: 57%;
+        left: 30%;
+        transform: rotate(-10deg);
+      }
+      .hands.two {
+        top: 52%;
+        left: 60%;
+        transform: rotate(20deg);
+      }
+      .hands.three {
+        top: 73%;
+        left: 30%;
+        transform: rotate(10deg);
+        z-index: -1;
+      }
+      .hands.four {
+        top: 73%;
+        left: 60%;
+        transform: rotate(-4deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="pochita">
+      <img class="tail" src="tail.svg" alt="꼬리" />
+      <div class="face">
+        <div class="eye left">
+          <div class="inner"></div>
+        </div>
+        <div class="eye right">
+          <div class="inner"></div>
+        </div>
+        <div class="nose left"></div>
+        <div class="nose right"></div>
+        <div class="mouth"></div>
+      </div>
+      <div class="hands one"></div>
+      <div class="hands two"></div>
+      <div class="hands three"></div>
+      <div class="hands four"></div>
+    </div>
+  </body>
+</html>
