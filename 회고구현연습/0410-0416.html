@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>dom</title>
+  <style>
+    ul>button {
+      margin-left: 20px;
+    }
+
+    li+li {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 목표: 
+  1. 뼈대잡고
+  2. js기능구현하고
+  3. 스타일링 -->
+  <input class="ipt-add" type="text" placeholder="할 일">
+  <button type="submit" class="btn-add">추가</button>
+  <button class="btn-reset">초기화</button>
+  <ul></ul>
+  <script>
+    const btnAdd = document.querySelector(".btn-add");
+    const myInput = document.querySelector(".ipt-add");
+    const myUl = document.querySelector("ul");
+
+
+    btnAdd.addEventListener('click', function () {
+      const myLi = document.createElement('li');
+      const btnDel = document.createElement("button");
+      const btnTxt = document.createTextNode("삭제하기");  //target 텍스트를 생성해줌.
+
+      if (!myInput.value) { //인풋내용이 입력되지 않으면 경고,
+        alert('내용을 입력해 주세요!');
+      } else { //그렇지 않으면
+        myUl.appendChild(myLi, btnDel); //ul>li 생성
+        myLi.textContent = myInput.value; //li에 input 입력했던 내용을 입력
+        myInput.value = ""; //input은 다시 비워줌
+        myLi.append(btnDel); //li에 delete button도 붙여줌 , 여러개의 노드와 텍스트 등도 추가 할 수 있음.
+        btnDel.append(btnTxt); // delete button에는 btnTxt에 생성된 텍스트를 붙여줌
+      };
+
+      btnDel.addEventListener('click', function () {
+        myLi.remove();
+      });
+
+    });
+
+    const btnReset = document.querySelector(".btn-reset");
+    btnReset.addEventListener('click', function () {
+      allLi.remove();
+    });
+
+
+
+  </script>
+</body>
+
+</html>
