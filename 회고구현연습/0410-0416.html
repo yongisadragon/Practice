@@ -15,47 +15,59 @@
       margin-top: 10px;
     }
   </style>
+
 </head>
 
 <body>
   <!-- 목표: 
   1. 뼈대잡고
   2. js기능구현하고
-  3. 스타일링 -->
-  <input class="ipt-add" type="text" placeholder="할 일">
-  <button type="submit" class="btn-add">추가</button>
-  <button class="btn-reset">초기화</button>
-  <ul></ul>
+  3. 스타일링은 나중에.. -->
+
+  <div class="parent">
+
+    <form class="wholeForm">
+      <label for="ipt-add"></label>
+      <input id="ipt-add" class="ipt-add" type="text" placeholder="할 일">
+      <button class="btn-add" type="button">추가</button>
+      <button class="btn-reset">초기화</button>
+    </form>
+    <ul></ul>
+  </div>
+
   <script>
+    const form = document.querySelector(".wholeForm")
     const btnAdd = document.querySelector(".btn-add");
+    const btnReset = document.querySelector(".btn-reset");
     const myInput = document.querySelector(".ipt-add");
     const myUl = document.querySelector("ul");
 
+    // form.addEventListener('submit', (e) => {
+    //   e.preventDefault();
+    // });
 
     btnAdd.addEventListener('click', function () {
-      const myLi = document.createElement('li');
-      const btnDel = document.createElement("button");
-      const btnTxt = document.createTextNode("삭제하기");  //target 텍스트를 생성해줌.
+      const liAdd = document.createElement('li'); // list생성
+      const btnTxt = document.createTextNode("삭제하기");  //target에 텍스트를 생성해줌.
+      const btnDel = document.createElement("button"); //btnDel은 삭제 버튼 생성하는 변수
 
       if (!myInput.value) { //인풋내용이 입력되지 않으면 경고,
         alert('내용을 입력해 주세요!');
       } else { //그렇지 않으면
-        myUl.appendChild(myLi, btnDel); //ul>li 생성
-        myLi.textContent = myInput.value; //li에 input 입력했던 내용을 입력
+        myUl.append(liAdd, btnDel); //ul>li 생성
+        liAdd.textContent = myInput.value; //li에 input 입력했던 내용을 입력
         myInput.value = ""; //input은 다시 비워줌
-        myLi.append(btnDel); //li에 delete button도 붙여줌 , 여러개의 노드와 텍스트 등도 추가 할 수 있음.
+        liAdd.append(btnDel); //li에 delete button(삭제버튼)도 붙여줌 , 여러개의 노드와 텍스트 등도 추가 할 수 있음.
         btnDel.append(btnTxt); // delete button에는 btnTxt에 생성된 텍스트를 붙여줌
       };
 
       btnDel.addEventListener('click', function () {
-        myLi.remove();
+        liAdd.remove();
       });
-
     });
 
-    const btnReset = document.querySelector(".btn-reset");
     btnReset.addEventListener('click', function () {
-      allLi.remove();
+      myUl.innerHTML = '';
     });
 
 

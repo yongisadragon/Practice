@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;800&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 1rem;
+  background-color: whitesmoke;
+}
+
+header {
+  background-color: white;
+}
+
+button {
+  padding: 8px;
+  outline: none;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 19, 121);
+  background-color: whitesmoke;
+}
+
+button:hover {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.container {
+  width: 95%;
+  margin: auto;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  margin: auto;
+  padding: 20px 0;
+  background-color: white;
+}
+
+.nav button {
+  font-family: inherit;
+}
+
+.create-box {
+  width: 380px;
+  padding: 20px;
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 5px;
+  background-color: whitesmoke;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.create-box textarea {
+  width: 100%; /* area100%가 돼야 save close 버튼이 아래로 밀려남 inline-block임*/
+  font-family: inherit;
+  border-radius: 5px;
+  border: 1px solid rgb(255, 19, 121);
+  padding: 20px;
+  resize: none;
+}
+
+.create-box button {
+  width: fit-content;
+}
+
+.flashcards {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  margin-top: 0 10px;
+  padding: 0 10px;
+}
+
+.flashcard {
+  width: 370px;
+  height: 200px;
+  word-wrap: break-word;
+  margin: 10px;
+  background-color: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.flashcard h2 {
+  font-size: 1rem;
+}
+
+@media (max-width: 768px) {
+  /* 한줄에 2개에서 1개가 되는 시점 */
+  .flashcard {
+    margin: 10px auto; /* 2개에서 1개 될때 가운데로 정렬되도록. */
+  }
+}
+
+@media (max-width: 480px) {
+  .nav {
+    flex-direction: column;
+    align-items: center;
+  }
+  .create-box {
+    width: 100%;
+  }
+  .flashcard {
+    width: 100%;
+  }
+}
