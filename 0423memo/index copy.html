@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>title name</title>
+  <style>
+    @font-face {
+      font-family: 'Pretendard';
+      src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'Pretendard', sans-serif;
+    }
+
+
+    textarea {
+      vertical-align: bottom;
+    }
+
+    .memoGenerator {
+      display: flex;
+    }
+
+    .memoText {
+      display: flex;
+      flex-direction: column;
+      flex-grow: 2;
+    }
+
+    .memoButton {
+      flex-grow: 1;
+    }
+
+    .memoCard {
+      list-style: none;
+      background-color: #ffcf5c;
+      border: 1px solid #ffb347;
+      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.15);
+      padding: 1rem;
+      width: 200px;
+      height: 250px;
+      border-radius: 5px;
+      box-shadow: 2px 2px 10px 0 rgba(0, 0, 0, 0.2)
+    }
+
+    .visible {
+      display: none;
+    }
+
+    /* .delBtn {
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+            border: 1px solid red;
+            background-color: #ffb347;
+            position: relative;
+        } */
+  </style>
+</head>
+
+<body>
+  <h1>Post-it Generator🟨</h1>
+  <section class='memoGenerator'>
+    <div class="memoText">
+      <label for="title">제목</label>
+      <input id="title" type="text">
+      <label for="content">내용</label>
+      <textarea id="content"></textarea>
+    </div>
+    <div class="memoButton">
+      <button onclick="addMemo()" class="add">생성</button>
+      <button onclick="resetMemo()" class="reset">초기화</button>
+    </div>
+  </section>
+  <ul class="memoContainer"></ul>
+
+  <script>
+    const memoContainer = document.querySelector('.memoContainer'); //포스트잇 공간
+    const title = document.querySelector('#title'); //제목
+    const content = document.querySelector('#content'); //내용
+    let memoArray = localStorage.getItem('memoItem') ? JSON.parse(localStorage.getItem('memoItem')) : []; //배열
+    // memoArray = memoArray ?? [];
+    render();
+
+    function resetMemo() {
+      localStorage.clear(); // 스토리지 비워주기
+      memoContainer.innerHTML = ''; // 메모 컨테이너 비워주기
+      memoArray = []; // 메모 전체 배열 비워주기
+    }
+
+    // memoArray.forEach(listMaker); // 배열 각 요소에 listMaker함수 호출
+
+    // function listMaker(item) {
+    //   const list = document.createElement('li'); // ul>li태그 생성
+    //   const p_answer = document.createElement('p'); // 답변 p태그 생성
+    //   const h2_question = document.createElement('h2'); // 질문 h2태그 생성
+    //   const memoId = document.createElement('p'); // 순서 번호
+    //   const delMemoBtn = document.createElement('button'); //del 버튼 태그 생성
+
+    //   list.className = 'memoCard';
+    //   delMemoBtn.className = 'delBtn';
+    //   p_answer.className = 'visible'; // 초기 내용 숨김 위해 클래스명 설정, 아래 토글로 on/off
+
+    //   list.addEventListener('click', () => {
+    //     p_answer.classList.toggle('visible')
+    //   });
+
+    //   h2_question.setAttribute('style', "border-bottom: 1px solid red; margin-top:30px")
+    //   h2_question.textContent = item.memoTitle;
+    //   p_answer.setAttribute('style', 'color:red');
+    //   p_answer.textContent = item.memoContent;
+    //   memoId.textContent = item.leng + 1;
+    //   delMemoBtn.setAttribute('id', item.leng);
+    //   delMemoBtn.setAttribute('style', '');
+    //   delMemoBtn.setAttribute('onclick', 'delMemo()');
+    //   delMemoBtn.textContent = '삭제';
+
+    //   const flexDiv = document.createElement('div');
+    //   flexDiv.setAttribute('style', 'display:flex; justify-content: space-between;')
+    //   memoContainer.appendChild(list);
+
+    //   list.appendChild(flexDiv);
+    //   flexDiv.appendChild(memoId);
+    //   flexDiv.appendChild(delMemoBtn);
+    //   list.appendChild(h2_question);
+    //   list.appendChild(p_answer);
+
+    // }
+    function render() {
+      memoContainer.innerHTML = "";
+
+      for (const item of memoArray) {
+        const list = document.createElement('li'); // ul>li태그 생성
+        const p_answer = document.createElement('p'); // 답변 p태그 생성
+        const h2_question = document.createElement('h2'); // 질문 h2태그 생성
+        const memoId = document.createElement('p'); // 순서 번호
+        const delMemoBtn = document.createElement('button'); //del 버튼 태그 생성
+
+        list.className = 'memoCard';
+        delMemoBtn.className = 'delBtn';
+        p_answer.className = 'visible'; // 초기 내용 숨김 위해 클래스명 설정, 아래 토글로 on/off
+
+        list.addEventListener('click', () => {
+          p_answer.classList.toggle('visible')
+        });
+
+        h2_question.setAttribute('style', "border-bottom: 1px solid red; margin-top:30px")
+        h2_question.textContent = item.memoTitle;
+        p_answer.setAttribute('style', 'color:red');
+        p_answer.textContent = item.memoContent;
+        memoId.textContent = item.leng + 1;
+        delMemoBtn.setAttribute('id', item.leng);
+        delMemoBtn.setAttribute('style', '');
+        delMemoBtn.setAttribute('onclick', 'delMemo()');
+        delMemoBtn.textContent = '삭제';
+
+        const flexDiv = document.createElement('div');
+        flexDiv.setAttribute('style', 'display:flex; justify-content: space-between;')
+        memoContainer.appendChild(list);
+
+        list.appendChild(flexDiv);
+        flexDiv.appendChild(memoId);
+        flexDiv.appendChild(delMemoBtn);
+        list.appendChild(h2_question);
+        list.appendChild(p_answer);
+      }
+    }
+
+    function addMemo() {
+      let memoInfo = {
+        memoTitle: title.value,
+        memoContent: content.value,
+        leng: memoArray.length
+      }
+      memoArray.push(memoInfo)
+      localStorage.setItem('memoArray', JSON.stringify(memoArray))
+      // listMaker(memoArray[memoArray.length - 1]);
+      render();
+
+      title.value = '';
+      content.value = '';
+    }
+
+    function delMemo() { //memoArray 안의 모든요소는 memoInfo의 객체들을 요소이다. 즉, len을 참조할 수 있음.
+      //event.srcElement.id는 이벤트가 발생한 요소의 id값(여기선 순서가 됨. listMaker에서 정해줬음) 
+      const idx = memoArray.find((el) => el.leng == event.srcElement.id);//이걸 이용해서 현재 id값과 이벤트(클릭)가 발생한 녀석의 id가 일치하는지 여부
+      if (idx) {
+        const findIdx = memoArray.findIndex((el) => el.leng === idx.leng) //주어진 판별 함수를 만족하는 배열의 첫 번째 요소에 대한 인덱스를 반환, 그 뒤의 연산자는 내가 누른 이벤트와 그 이벤트가 발생한 위치의 len이 같을 경우
+        memoArray.splice(findIdx, 1);
+      }
+      localStorage.setItem('memoArray', JSON.stringify(memoArray))
+      render();
+    }
+
+
+  </script>
+</body>
+
+</html>

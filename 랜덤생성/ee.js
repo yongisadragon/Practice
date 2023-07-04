@@ -34,7 +34,7 @@ function resetInput() {
   document.querySelector("#memo").value = "";
 }
 
-function createMemo() {
+function createMemo() { // 제목과 컨텐츠 value들을 가져와서 memoObj에 객체 형태로 저장.
   const title = getMemoTitle();
   const content = getMemoContent();
 

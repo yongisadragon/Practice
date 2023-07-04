@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title name</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+  <div class="whole-warrper">
+    <header>
+      <h1 class="h1-title">Post-it Generator🟨</h1>
+    </header>
+    <section class='memoGenerator'>
+      <div class="memoText">
+        <label for="title" class="a11y-hidden">제목</label>
+        <input id="title" type="text" placeholder="제목">
+        <label for="content" class="a11y-hidden">내용</label>
+        <textarea id="content" placeholder="내용"></textarea>
+
+      </div>
+      <div class="memoButton">
+        <button onclick="addMemo()" class="add">생성</button>
+        <button onclick="resetMemo()" class="reset">초기화</button>
+      </div>
+    </section>
+    <ul class="memoContainer"></ul>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

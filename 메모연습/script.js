@@ -61,17 +61,17 @@ function addFlashcard() {
   };
   contentArray.push(flashcardInfo); //array에 객체에 들어가는 벨류값 푸쉬
   localStorage.setItem("items", JSON.stringify(contentArray)); //이 array에 더해줄때마다 로컬스토리지를 업데이트 해줌 각각 key 와 value. localStorage를 보면 value가 [{"my_question":"질문.","my_answer":"안녕"}]의 형식으로 들어가있음.
-  divMaker(contentArray[contentArray.length - 1]); //위에서 만들어준 divMaker라는 함수.
+  divMaker(contentArray[contentArray.length - 1]); //위에서 만들어준 divMaker라는 함수. contentArray[contentArray.length - 1] 이거 자체가 divMaker에선 text 인자로 표현
   question.value = "";
   answer.value = ""; //업데이트가 되면 textarea의 벨류들은 지워줌
 }
 
-function showCreateCardBox() {
-  //new card 누르면 creat flashcard생성 사실 생성이라기보단 none 에서 다시 보이게 해주는 것 div기본 설정 block
-  createBox.style.display = "block";
-}
+// function showCreateCardBox() {
+//   //new card 누르면 creat flashcard생성 사실 생성이라기보단 none 에서 다시 보이게 해주는 것 div기본 설정 block
+//   createBox.style.display = "block";
+// }
 
-function hideCreateBox() {
-  //close 누르면
-  createBox.style.display = "none";
-}
+// function hideCreateBox() {
+//   //close 누르면
+//   createBox.style.display = "none";
+// }

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>시각이 찍히는 메모장</title>
+</head>
+
+<body>
+  <h1>시각이 찍히는 메모장</h1>
+  <input id="memo"></input>
+  <button onclick="saveMemo()">저장</button>
+  <ul id="memoList"></ul>
+  <script>
+    function saveMemo() {
+      const memoInput = document.getElementById("memo");
+      const memoList = document.getElementById("memoList");
+      const memoText = memoInput.value;
+      const time = new Date();
+      const year = time.getFullYear();
+      const month = String(time.getMonth() + 1).padStart(2, '0'); // getMonth()는 0부터 시작하므로 1을 더해줍니다.
+      const day = String(time.getDate()).padStart(2, '0');
+      const dateTimeString = time.toLocaleString();
+      const memoItem = document.createElement("li");
+      memoItem.textContent = `${year}/${month}/${day}: ${memoText}`;
+      memoList.appendChild(memoItem);
+      memoInput.value = "";
+    }
+  </script>
+</body>
+
+</html>

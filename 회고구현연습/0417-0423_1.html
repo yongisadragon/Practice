@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>title name</title>
+  <style>
+    * {
+      margin: 0;
+    }
+
+    div {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      position: absolute;
+      transform-origin: center center;
+    }
+  </style>
+</head>
+
+<body>
+  <div></div>
+  <script>
+    const box = document.querySelector('div')
+    const rect = box.getBoundingClientRect();
+
+    window.document.addEventListener('mousedown', () => {
+      const randomX = parseInt(Math.random() * (window.innerWidth - box.offsetWidth)) + rect.x;
+      const randomY = parseInt(Math.random() * (window.innerHeight - box.offsetHeight)) + rect.y;
+
+      box.style.transform = `translate(${randomX}px, ${randomY}px)`;
+      // console.log(`${randomX}px, ${randomY}px`);
+    });
+  </script>
+</body>
+
+</html>
